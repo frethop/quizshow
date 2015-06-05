@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<Button
+       	android:id="@+id/start_stop_registration_button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Start!"
+	/>
+ 	<ListView
+		android:id="@+id/setup_player_list"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:dividerHeight="5px"
+		android:background="#A0FFE2A9"
+	/>
+	
+</LinearLayout>

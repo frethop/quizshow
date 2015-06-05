@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_next_round"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/fast_forward"
+        android:title="Next"/>
+    <item
+        android:id="@+id/action_chromecast"
+        android:orderInCategory="101"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/chromecast"
+        android:title="Cast"/>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="110"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+    
+</menu>

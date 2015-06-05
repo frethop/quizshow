@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="horizontal"
+    	>
+
+	    <RelativeLayout
+	        android:id="@+id/file_display"
+			android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:background="@drawable/border" 
+	        android:layout_weight="2">
+
+		    <RelativeLayout
+		        android:id="@+id/nodata_display"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent" 
+		        >
+		        	        
+			    <TextView
+			        android:id="@+id/nofiles_label"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="30sp"
+			        android:text="NO QS DATA" />
+			    
+	    	</RelativeLayout>
+		    <RelativeLayout
+		        android:id="@+id/data_display"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:visibility="invisible"
+		        >
+			    <TextView
+			        android:id="@+id/qs_title_label"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="20sp"
+			        android:textStyle="bold"
+			        android:text="Quizshow Title:  " />
+			    <TextView
+			        android:id="@+id/qs_title"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="20sp"
+			        android:text="title" 
+			        android:layout_toRightOf="@id/qs_title_label"/> 
+			    <TextView
+			        android:id="@+id/qs_rounds_label"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textStyle="bold"
+			        android:textSize="20sp"
+			        android:text="# of rounds: " 
+			        android:layout_below="@id/qs_title_label"/> 
+			    <TextView
+			        android:id="@+id/qs_rounds"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="20sp"
+			        android:text="0" 
+			        android:layout_below="@id/qs_title" 
+			        android:layout_toRightOf="@id/qs_title_label"
+			    />			    			    			        
+			    <TextView
+			        android:id="@+id/qs_description"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="20sp"
+			        android:text="0" 
+			        android:layout_below="@id/qs_rounds_label" />
+			    <TextView
+			        android:id="@+id/qs_verification"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:background="@drawable/thinborder" 
+			        android:textSize="20sp"
+			        android:text="0" 
+			        android:layout_below="@id/qs_description" />
+			</RelativeLayout>
+		    	    	
+	    </RelativeLayout>
+    	<RelativeLayout
+    	    android:id="@+id/player_display"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+	    	android:background="@drawable/border"
+			android:layout_weight="2">
+    	
+		    <RelativeLayout
+		        android:id="@+id/noplayers_display"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent" 
+		        >
+	    	    <TextView
+			        android:id="@+id/noplayers_label"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="30sp"
+			        android:text="NO PLAYERS" />
+			    
+			 </RelativeLayout>
+			 <RelativeLayout
+		        android:id="@+id/players_display"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent" 
+		       	android:visibility="invisible"
+		        >
+	    	    <TextView
+			        android:id="@+id/setup_players_title_label"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="30sp"
+			        android:text="~~~ PLAYERS ~~~" 
+			        android:gravity="center_horizontal"/>
+    	    	<ListView
+    				android:id="@+id/setup_player_list"
+					android:layout_width="fill_parent"
+    				android:layout_height="wrap_content"
+    				android:dividerHeight="5px"
+    				android:background="#A0FFE2A9"
+    				android:layout_below="@id/setup_players_title_label"
+    			/>
+        	    
+    	    </RelativeLayout>
+    			
+    	</RelativeLayout>
+		    <Button
+	        android:id="@+id/start_button"
+			android:layout_width="0dp"
+			android:layout_height="100sp"
+			android:text="PLAY!"
+			android:textSize="30dip"
+			android:textStyle="bold"
+			android:layout_weight="1"
+			/>
+   	
+   	</LinearLayout>
+
+</RelativeLayout>

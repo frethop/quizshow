@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_file"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/file"
+        android:title="File"/>
+    <item
+        android:id="@+id/action_player_manual_add"
+        android:orderInCategory="101"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/social_add_person"
+        android:title="Add"/>
+    <item
+        android:id="@+id/action_player_auto_add"
+        android:orderInCategory="102"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/social_group_import"
+        android:title="Auto"/>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="110"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+    
+</menu>
