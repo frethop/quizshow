@@ -1,10 +1,10 @@
 package com.kabestin.android.quizshow.model;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,18 +69,17 @@ public class ScorePanelAdapter extends BaseAdapter
 		
 		if ( (v == null) || (v.getTag() == null) ) {
 			v = mInflater.inflate(R.layout.score_panel_item, null);
-			line = (TextView) v.findViewById(R.id.score_name);
-			score = (TextView) v.findViewById(R.id.score_value);
-		} else {
-			line = (TextView)v.getTag();
 		}
+		line = (TextView) v.findViewById(R.id.score_name);
+		score = (TextView) v.findViewById(R.id.score_value);
 		
 		String name = ((GamePlay)parent).getPlayerName(arg0);
 		line.setText(name+": ");
 		line.setTextSize(20);
 		int sc = ((GamePlay)parent).getPlayerScore(name);
-		score.setText(""+sc);
 		score.setTextSize(20);
+		score.setText(""+sc);
+		Log.d("ScorePanelAdapter", "Score is " + sc);
 		
 		v.setTag(line);
 		v.setOnLongClickListener(new FixNameScoreAction(parent, names.get(arg0)));

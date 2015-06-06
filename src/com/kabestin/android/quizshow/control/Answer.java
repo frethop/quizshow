@@ -53,6 +53,7 @@ public class Answer implements OnClickListener {
     	bundle.putString("answer", answer);
     	bundle.putString("question", question);
     	bundle.putStringArrayList("players", playerList);
+    	bundle.putBoolean("dailydouble", isDailyDouble);
     	bundle.putInt("row", row);
     	bundle.putInt("column",  column);
     	bundle.putInt("round", round);

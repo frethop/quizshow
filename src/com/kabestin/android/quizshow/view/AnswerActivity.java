@@ -1,10 +1,13 @@
 package com.kabestin.android.quizshow.view;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.res.AssetFileDescriptor;
 import android.graphics.Point;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.Menu;
@@ -27,6 +30,7 @@ public class AnswerActivity extends Activity {
 	ArrayList<String> playerList;
 	String answer, question;
 	int round, points;
+	boolean isDailyDouble;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,23 +59,37 @@ public class AnswerActivity extends Activity {
         playerList = getIntent().getStringArrayListExtra("players");
         round = getIntent().getIntExtra("round", 0);
         points = getIntent().getIntExtra("dollars", 0);
+        isDailyDouble = getIntent().getBooleanExtra("dailydouble", false);
         
 	    ActionBar ab = getActionBar();
-	    ab.setTitle("Round "+round);
+	    ab.setTitle("Round "+(round+1));
 	    ab.setSubtitle(""+points+" points"); 
         
 		WebView view = (WebView) findViewById(R.id.answer_text);
 		String answerPlus = "<font size=+3>"+answer+"</font>";
 		view.loadData(answerPlus, "text/html", null);
 		
-//		final String[] numbers = new String[playerList.size()];
-//		int i=0;
-//		for (String s : playerList) numbers[i++] = s;
-//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//				android.R.layout.simple_list_item_1, numbers);
 		AnswerPlayerPanelAdapter adapter = new AnswerPlayerPanelAdapter(this, playerList, points);
 		GridView gridView = (GridView) findViewById(R.id.answer_scores);
 		gridView.setAdapter(adapter);
+		
+		if (isDailyDouble) {
+			MediaPlayer mp = new MediaPlayer();
+	        try {
+
+	            AssetFileDescriptor afd;
+	            afd = getAssets().openFd("dailydouble.mp3");
+	            mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+	            mp.prepare();
+	            mp.start();
+	        } catch (IllegalStateException e) {
+	            e.printStackTrace();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+
+	        // pop up the daily double dialog for wagering
+		}
 		
     }
 	

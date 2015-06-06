@@ -3,6 +3,7 @@ package com.kabestin.android.quizshow.model;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,7 @@ public class AnswerPanelAdapter extends BaseAdapter {
 
 		if (row == 0) {
 			panelButton.setBackgroundColor(Color.YELLOW);
+			panelButton.setTypeface(null, Typeface.BOLD);
 			panelButton.setText(data.getQSCategoryName(round, col));
 		} else {
 			panelButton.setBackgroundColor(Color.LTGRAY);
