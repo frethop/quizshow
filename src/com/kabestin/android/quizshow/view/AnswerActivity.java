@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Point;
 import android.media.MediaPlayer;
@@ -13,13 +14,13 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.View.OnClickListener;
 import android.view.WindowManager.LayoutParams;
 import android.webkit.WebView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 
 import com.kabestin.android.quizshow.R;
@@ -89,6 +90,30 @@ public class AnswerActivity extends Activity {
 	        }
 
 	        // pop up the daily double dialog for wagering
+	        final Dialog dialog = new Dialog(this);
+
+            dialog.setContentView(R.layout.wager_dialog);
+            dialog.setTitle("Make a Wager");
+
+            final EditText editText=(EditText)dialog.findViewById(R.id.wager_amount);
+            Button save=(Button)dialog.findViewById(R.id.wager_ok);
+    		save.setOnClickListener(new OnClickListener() {
+    	        @Override
+    	        public void onClick(View v) {
+    	        	String amount = editText.getText().toString();
+    	        	points = (new Integer(amount)).intValue();
+    	            dialog.dismiss();
+    	        }
+    	    });
+
+            Button btnCancel=(Button)dialog.findViewById(R.id.wager_cancel);
+            btnCancel.setOnClickListener(new OnClickListener() {
+    	        @Override
+    	        public void onClick(View v) {
+    	            dialog.dismiss();
+    	        }
+    	    });
+            dialog.show();
 		}
 		
     }

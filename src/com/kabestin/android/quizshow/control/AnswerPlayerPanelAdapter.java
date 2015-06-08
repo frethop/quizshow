@@ -38,11 +38,7 @@ public class AnswerPlayerPanelAdapter extends BaseAdapter {
 
 		DrawableButton correct = (DrawableButton) panelSquare.findViewById(R.id.correct_button);
 		DrawableButton wrong = (DrawableButton) panelSquare.findViewById(R.id.wrong_button);
-		
-		correct.setText(playerList.get(position));
-		//Drawable d = activityParent.getResources().getDrawable( R.drawable.correct );
-		correct.setBackgroundColor(Color.GREEN);
-		correct.setOnClickListener(new OnClickListener() {
+				correct.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
 	        	int t = GamePlay.getPlayerScore(playerList.get(position));
@@ -51,6 +47,10 @@ public class AnswerPlayerPanelAdapter extends BaseAdapter {
 	            activityParent.finish();
 	        }
 	    });
+
+		correct.setText(playerList.get(position));
+		//Drawable d = activityParent.getResources().getDrawable( R.drawable.correct );
+		correct.setBackgroundColor(Color.GREEN);
 		wrong.setText(playerList.get(position));
 		//d = activityParent.getResources().getDrawable( R.drawable.wrong );
 		wrong.setBackgroundColor(Color.RED);

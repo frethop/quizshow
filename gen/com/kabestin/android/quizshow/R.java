@@ -48,14 +48,14 @@ public final class R {
         public static final int wrong=0x7f020012;
     }
     public static final class id {
-        public static final int action_chromecast=0x7f0a002d;
-        public static final int action_close=0x7f0a002b;
-        public static final int action_file=0x7f0a002f;
-        public static final int action_next_round=0x7f0a002c;
-        public static final int action_player_auto_add=0x7f0a0031;
-        public static final int action_player_manual_add=0x7f0a0030;
-        public static final int action_settings=0x7f0a002e;
-        public static final int action_show_answer=0x7f0a002a;
+        public static final int action_chromecast=0x7f0a0032;
+        public static final int action_close=0x7f0a0030;
+        public static final int action_file=0x7f0a0034;
+        public static final int action_next_round=0x7f0a0031;
+        public static final int action_player_auto_add=0x7f0a0036;
+        public static final int action_player_manual_add=0x7f0a0035;
+        public static final int action_settings=0x7f0a0033;
+        public static final int action_show_answer=0x7f0a002f;
         public static final int answer_panel=0x7f0a0000;
         public static final int answer_scores=0x7f0a0004;
         public static final int answer_text=0x7f0a0003;
@@ -97,6 +97,11 @@ public final class R {
         public static final int square_button=0x7f0a0007;
         public static final int start_button=0x7f0a0028;
         public static final int start_stop_registration_button=0x7f0a0008;
+        public static final int wager_amount=0x7f0a002c;
+        public static final int wager_cancel=0x7f0a002e;
+        public static final int wager_dialog=0x7f0a002a;
+        public static final int wager_label=0x7f0a002b;
+        public static final int wager_ok=0x7f0a002d;
         public static final int wrong_button=0x7f0a0006;
     }
     public static final class layout {
@@ -111,6 +116,7 @@ public final class R {
         public static final int score_panel_item=0x7f030008;
         public static final int setup=0x7f030009;
         public static final int setup_player_list_row=0x7f03000a;
+        public static final int wager_dialog=0x7f03000b;
     }
     public static final class menu {
         public static final int answer=0x7f090000;
