@@ -22,7 +22,7 @@ public class AnswerPlayerPanelAdapter extends BaseAdapter {
 	private Activity activityParent;
 	private ArrayList<String> playerList;
 	private int round;
-	private final int dollars;
+	private int dollars;
 	
 	public AnswerPlayerPanelAdapter(Activity activity, ArrayList<String> pList, int amount) {
 		activityParent = activity;
@@ -73,6 +73,10 @@ public class AnswerPlayerPanelAdapter extends BaseAdapter {
     public void setRound(int round) 
     {
     	this.round = round;
+    }
+    
+    public void setPoints(int points) {
+    	dollars = points;
     }
     
     private class PanelItem {

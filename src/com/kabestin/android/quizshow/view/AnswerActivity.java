@@ -7,6 +7,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.res.AssetFileDescriptor;
+import android.content.res.Configuration;
 import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -32,10 +33,17 @@ public class AnswerActivity extends Activity {
 	String answer, question;
 	int round, points;
 	boolean isDailyDouble;
+	
+	Activity parent;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
+		
+		GridView gridView;
+		
         super.onCreate(savedInstanceState);
+        
+        parent = this;
         
         // From: http://stackoverflow.com/questions/11425020/actionbar-in-a-dialogfragment
         this.requestWindowFeature(Window.FEATURE_ACTION_BAR);
@@ -62,17 +70,15 @@ public class AnswerActivity extends Activity {
         points = getIntent().getIntExtra("dollars", 0);
         isDailyDouble = getIntent().getBooleanExtra("dailydouble", false);
         
-	    ActionBar ab = getActionBar();
+		final AnswerPlayerPanelAdapter adapter = new AnswerPlayerPanelAdapter(this, playerList, points);;
+        
+        ActionBar ab = getActionBar();
 	    ab.setTitle("Round "+(round+1));
 	    ab.setSubtitle(""+points+" points"); 
         
 		WebView view = (WebView) findViewById(R.id.answer_text);
 		String answerPlus = "<font size=+3>"+answer+"</font>";
 		view.loadData(answerPlus, "text/html", null);
-		
-		AnswerPlayerPanelAdapter adapter = new AnswerPlayerPanelAdapter(this, playerList, points);
-		GridView gridView = (GridView) findViewById(R.id.answer_scores);
-		gridView.setAdapter(adapter);
 		
 		if (isDailyDouble) {
 			MediaPlayer mp = new MediaPlayer();
@@ -96,12 +102,14 @@ public class AnswerActivity extends Activity {
             dialog.setTitle("Make a Wager");
 
             final EditText editText=(EditText)dialog.findViewById(R.id.wager_amount);
+            editText.setRawInputType(Configuration.KEYBOARD_12KEY);
             Button save=(Button)dialog.findViewById(R.id.wager_ok);
     		save.setOnClickListener(new OnClickListener() {
     	        @Override
     	        public void onClick(View v) {
     	        	String amount = editText.getText().toString();
-    	        	points = (new Integer(amount)).intValue();
+    	        	points = Integer.valueOf(amount);
+    	        	adapter.setPoints(points);
     	            dialog.dismiss();
     	        }
     	    });
@@ -114,7 +122,11 @@ public class AnswerActivity extends Activity {
     	        }
     	    });
             dialog.show();
+            
 		}
+				
+		gridView = (GridView) findViewById(R.id.answer_scores);
+		gridView.setAdapter(adapter);		
 		
     }
 	
